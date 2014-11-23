@@ -1,0 +1,76 @@
+{
+  "gameSystem": {
+    "name": "Mars Attacks",
+    "id": "fab00512-5cec-20cc-6d0e-b135c99bd7f6",
+    "authorName": "Moobs",
+    "battleScribeVersion": 2.03,
+    "revision": 1,
+    "type": "gameSystem",
+    "xmlns": "http://www.battlescribe.net/schema/gameSystemSchema",
+    "categoryEntries": [
+      {"name": "CORE TROOPS", "id": "788a7565-e793-7b5e-82d2-f09618b677a2"},
+      {"name": "CHARACTERS", "id": "d2a0df56-40fc-4f2d-cd95-c175ad853601"},
+      {"name": "SUPPORT", "id": "27ff4644-ab4b-6736-cb10-1752fe720139"}
+    ],
+    "costTypes": [{"name": "pts", "id": "points"}],
+    "forceEntries": [
+      {
+        "name": "Army",
+        "id": "2b998170-a7b7-159a-c5d9-19a92bbf0f81",
+        "categoryLinks": [
+          {
+            "name": "CORE TROOPS",
+            "id": "2b998170-a7b7-159a-c5d9-19a92bbf0f81-788a7565-e793-7b5e-82d2-f09618b677a2",
+            "targetId": "788a7565-e793-7b5e-82d2-f09618b677a2",
+            "constraints": [{"id": "minSelections", "field": "selections", "scope": "parent", "type": "min", "value": 1}]
+          },
+          {
+            "name": "CHARACTERS",
+            "id": "2b998170-a7b7-159a-c5d9-19a92bbf0f81-d2a0df56-40fc-4f2d-cd95-c175ad853601",
+            "targetId": "d2a0df56-40fc-4f2d-cd95-c175ad853601",
+            "constraints": [{"id": "maxSelections", "field": "selections", "includeChildForces": true, "scope": "parent", "type": "max", "value": 0}],
+            "modifiers": [
+              {
+                "field": "maxSelections",
+                "type": "increment",
+                "value": 1,
+                "conditions": [{"childId": "788a7565-e793-7b5e-82d2-f09618b677a2", "field": "selections", "scope": "parent", "type": "atLeast", "value": 5}],
+                "repeats": [{"childId": "788a7565-e793-7b5e-82d2-f09618b677a2", "field": "selections", "repeats": 1, "scope": "force", "value": 5}]
+              }
+            ]
+          },
+          {
+            "name": "SUPPORT",
+            "id": "2b998170-a7b7-159a-c5d9-19a92bbf0f81-27ff4644-ab4b-6736-cb10-1752fe720139",
+            "targetId": "27ff4644-ab4b-6736-cb10-1752fe720139",
+            "constraints": [{"id": "maxSelections", "field": "selections", "includeChildForces": true, "scope": "parent", "type": "max", "value": 0}],
+            "modifiers": [
+              {
+                "field": "maxSelections",
+                "type": "increment",
+                "value": 1,
+                "conditions": [{"childId": "788a7565-e793-7b5e-82d2-f09618b677a2", "field": "selections", "scope": "parent", "type": "atLeast", "value": 5}],
+                "repeats": [{"childId": "788a7565-e793-7b5e-82d2-f09618b677a2", "field": "selections", "repeats": 1, "scope": "force", "value": 5}]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "profileTypes": [
+      {
+        "name": "Stats",
+        "id": "a967d0f9-1d78-fa8e-f453-78020d534890",
+        "characteristicTypes": [
+          {"name": "Shoot", "id": "bf8f19f1-1d33-fbb1-87a7-80d1781db1d1"},
+          {"name": "Fight", "id": "c2598751-c978-e775-0520-d502ca596231"},
+          {"name": "Survive", "id": "db6a39c1-aeb2-11fb-5b2e-f68972ad124e"},
+          {"name": "Range", "id": "e3e20151-f9e3-e744-38ff-b8a2cb3dae19"},
+          {"name": "Heroics", "id": "56a28b09-f594-bbb8-f3eb-cda052740f3f"}
+        ]
+      },
+      {"name": "Weapon Stats", "id": "8e2c8056-35c9-b4e4-0c61-4190eb0e1289", "characteristicTypes": [{"name": "Range", "id": "de96fd50-1ae5-61e7-c63b-2ba36481c553"}]}
+    ],
+    "publications": [{"name": "Mars Attacks the Miniatures Game: World War", "id": "fab00512--pub1"}]
+  }
+}
